@@ -1,0 +1,39 @@
+This code:
+   sub x(a,b,c) {
+     i = a
+     while (i < 20) {
+       if odd(i) {
+         i = i + b
+       } else {
+         i = i + c
+         print("in else")
+       }
+       print("in loop")
+     }  // end-while
+     print(i)
+   }
+Can be represented as a tree:
+                           sub x(*)
+                           --------
+                             * * *
+                            *  *  *
+                           *   *   *
+                          *    *    *
+                         *     *     *
+                        *      *      *
+                    i = a   while(*)  print(i)
+                    -----    -----    --------
+                              * *
+                             *   *
+                            *     *
+                           if(*)  print("in loop")
+                           --     ----------------
+                           **
+                          *  *
+                         *    *
+                        *      *
+                      i=i+b    else
+                      -----    ----
+                               *  *
+                              *    *
+                          i=i+c   print("in else")
